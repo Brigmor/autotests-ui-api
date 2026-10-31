@@ -6,7 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
 public class Specification {
-    public static RequestSpecification BaseSpec() {
+    public static RequestSpecification baseSpec() {
 
         return new RequestSpecBuilder()
                 .setBaseUri(Config.getUserServiceUrl())

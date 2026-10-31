@@ -1,7 +1,7 @@
 package api.testdata;
 
 import net.datafaker.Faker;
-import org.example.models.UserRequest;
+import org.example.models.request.UserRequest;
 import java.util.function.Consumer;
 public class UserFactory {
 

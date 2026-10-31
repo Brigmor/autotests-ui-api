@@ -2,7 +2,7 @@ package api.tests;
 
 import api.testdata.UserFactory;
 import net.datafaker.Faker;
-import org.example.models.UserRequest;
+import org.example.models.request.UserRequest;
 import org.junit.jupiter.api.Test;
 
 public class FacerTest {
