@@ -1,4 +1,4 @@
-package org.example.models.response;
+package api.models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

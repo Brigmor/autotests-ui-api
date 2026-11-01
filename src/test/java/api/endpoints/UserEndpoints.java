@@ -1,7 +1,11 @@
-package org.example.api.endpoints;
+package api.endpoints;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum UserEndpoints {
-
     HEALTH("/health"),
     REGISTER("/api/auth/register"),
     LOGIN("/api/auth/login"),
@@ -10,14 +14,5 @@ public enum UserEndpoints {
     Update("/api/users/me"),
     CHANGE_PASSWORD("/api/users/me/password");
 
-
     private final String path;
-
-    UserEndpoints(String path) {
-        this.path = path;
-    }
-
-    public String getPath() {
-        return path;
-    }
 }

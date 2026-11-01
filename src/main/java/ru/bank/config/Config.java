@@ -1,11 +1,11 @@
-package org.example.config;
+package ru.bank.config;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 //Берем настройки из application
 public class Config {
-
+//TODO: ПЕРЕДЕЛАТЬ НА БИБЛИОТЕКУ OWNER
     private static final Properties PROPERTIES = new Properties();
 
     static {

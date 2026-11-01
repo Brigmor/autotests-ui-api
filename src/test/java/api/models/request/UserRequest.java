@@ -1,16 +1,13 @@
-package org.example.models.request;
+package api.models.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRequest {
-
 
     private String firstName;
     private String lastName;
@@ -19,5 +16,4 @@ public class UserRequest {
     private String password;
     private String confirmPassword;
     private boolean consent;
-
 }
