@@ -1,5 +1,6 @@
 package org.example.api.clients;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.example.api.BaseApi;
 import org.example.api.endpoints.UserEndpoints;
@@ -14,6 +15,7 @@ public class UserApi extends BaseApi {
         super(Specification.baseSpec());
     }
 
+    @Step("Регистрируем нового пользователя")
     public ApiResponse<UserResponse> registerUser(UserRequest user) {
 
         Response response = request()

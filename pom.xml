@@ -50,7 +50,7 @@
         <!-- Allure для JUnit 5 -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-junit5</artifactId>
+            <artifactId>allure-jupiter</artifactId>
             <version>2.35.5</version>
             <scope>test</scope>
         </dependency>
@@ -60,7 +60,7 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
             <version>2.35.5</version>
-            <scope>test</scope>
+
         </dependency>
 
         <!-- Allure интеграция с REST Assured -->
@@ -68,7 +68,7 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>2.35.5</version>
-            <scope>test</scope>
+
         </dependency>
 
 
