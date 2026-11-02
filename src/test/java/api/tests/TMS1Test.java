@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 
 public class TMS1Test extends BaseApiTest {
 
-    //TODO: FTL для рест ашуред
     @Test
     @Epic("API")
     @Feature("Регистрация пользователя")

@@ -26,7 +26,6 @@ public class TMS3Test extends BaseApiTest {
                 .body("message", Matchers.equalTo("Некорректные данные"))
                 .body("errors", Matchers.not(Matchers.empty()))
                 .body("errors.field", Matchers.hasItems("email"))
-                .body("errors.message", Matchers.equalTo("value is not a valid email address: An email address must have an @-sign."));
-
+                .body("errors.message", Matchers.hasItem(Matchers.containsString("An email address must have an @-sign")));
     }
 }

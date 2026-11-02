@@ -1,5 +1,6 @@
 package api.specification;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import ru.bank.config.Config;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -7,7 +8,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class Specification {
 
-    public static RequestSpecification baseSpec() {
+       public static RequestSpecification baseSpec() {
         return new RequestSpecBuilder()
                 .setBaseUri(Config.getUserServiceUrl())
                 .setContentType(ContentType.JSON)
