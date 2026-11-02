@@ -10,12 +10,12 @@ import static io.restassured.RestAssured.given;
 
 public class UserController {
 
-    @Step("Создать пользователя с номером телефона")
+    @Step("Создать пользователя")
     public static ValidatableResponse postUser(UserRequest body) {
         return given()
                 .spec(Specification.baseSpec())
                 .body(body)
                 .post(UserEndpoints.REGISTER.getPath())
-                .then();
+                .then().log().all();
     }
 }

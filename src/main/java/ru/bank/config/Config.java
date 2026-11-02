@@ -1,73 +1,44 @@
 package ru.bank.config;
 
+import org.aeonbits.owner.ConfigFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 //Берем настройки из application
 public class Config {
-//TODO: ПЕРЕДЕЛАТЬ НА БИБЛИОТЕКУ OWNER
-    private static final Properties PROPERTIES = new Properties();
 
-    static {
-        try (InputStream input = Config.class
-                .getClassLoader()
-                .getResourceAsStream("config/application.properties")) {
-
-            if (input == null) {
-                throw new IllegalStateException(
-                        "application.properties not found"
-                );
-            }
-
-            PROPERTIES.load(input);
-
-        } catch (IOException e) {
-            throw new RuntimeException(
-                    "Failed to load application.properties", e
-            );
-        }
-    }
+private static final ApplicationConfig CONFIG =
+        ConfigFactory.create(ApplicationConfig.class);
 
     private Config() {
     }
 
-    private static String get(String key) {
-        String value = PROPERTIES.getProperty(key);
-
-        if (value == null || value.isBlank()) {
-            throw new IllegalStateException(
-                    "Configuration property is missing: " + key
-            );
-        }
-
-        return value.trim();
-    }
-
     public static String getUserServiceUrl() {
-        return get("api.user-service-url");
+        return CONFIG.userServiceUrl();
     }
 
     public static String getApplicationServiceUrl() {
-        return get("api.application-service-url");
+        return CONFIG.applicationServiceUrl();
     }
 
     public static String getUiBaseUrl() {
-        return get("ui.base-url");
+        return CONFIG.uiBaseUrl();
     }
 
     public static String getBrowser() {
-        return get("browser");
+        return CONFIG.browser();
     }
 
     public static boolean isHeadless() {
-        return Boolean.parseBoolean(get("browser.headless"));
+        return CONFIG.headless();
     }
 
     public static int getTimeout() {
-        return Integer.parseInt(get("timeout"));
+        return CONFIG.timeout();
     }
 
     public static int getConnectionTimeout() {
-        return Integer.parseInt(get("connection.timeout"));
+        return CONFIG.connectionTimeout();
     }
 }
