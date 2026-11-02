@@ -16,7 +16,7 @@ public class TMS2Test extends BaseApiTest {
     @Story("Регистрация с незаполненными обязательными полями")
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Регистрация пользователя c пустыми полями")
-    public void test() {
+     void test() {
 
         UserRequest user = UserRequest.builder()
                 .firstName("")
