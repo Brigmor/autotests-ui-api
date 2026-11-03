@@ -4,10 +4,7 @@ import api.BaseApiTest;
 import api.controllers.RegisterUserController;
 import api.data.UserFactory;
 import api.models.request.RegisterUserRequest;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,8 +13,9 @@ public class TMS7Test extends BaseApiTest {
     @Test
     @Epic("API")
     @Feature("Регистрация пользователя")
+    @Story("Регистрация с паролем меньше 8 символов")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Регистрация пользоватлея с паролем меньше 8 символов")
+    @DisplayName("Регистрация пользователя с паролем меньше 8 символов")
     void test() {
 
         RegisterUserRequest user = UserFactory.createValidUser();
