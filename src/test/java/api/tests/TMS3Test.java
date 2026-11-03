@@ -17,7 +17,6 @@ public class TMS3Test extends BaseApiTest {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Регистрация пользователя с неправильным форматом email")
      void test() {
-
         RegisterUserRequest user = UserFactory.createValidUser();
         user.setEmail("invalid-email");
         RegisterUserController.postUser(user)

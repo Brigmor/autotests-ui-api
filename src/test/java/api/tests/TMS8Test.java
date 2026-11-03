@@ -28,6 +28,5 @@ public class TMS8Test extends BaseApiTest {
                 .body("message",Matchers.equalTo("Некорректные данные"))
                 .body("errors.field",Matchers.hasItem(""))
                 .body("errors.message",Matchers.hasItem(Matchers.containsString("Value error, Пароли не совпадают")));
-
     }
 }

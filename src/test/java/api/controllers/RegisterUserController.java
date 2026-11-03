@@ -9,7 +9,6 @@ import api.models.request.RegisterUserRequest;
 import static io.restassured.RestAssured.given;
 
 public class RegisterUserController {
-
     @Step("Создать пользователя")
     public static ValidatableResponse postUser(RegisterUserRequest body) {
         return given()

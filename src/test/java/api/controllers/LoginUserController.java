@@ -9,7 +9,6 @@ import io.restassured.response.ValidatableResponse;
 import static io.restassured.RestAssured.given;
 
 public class LoginUserController {
-
     @Step("Авторизация пользователя")
     public static ValidatableResponse postLoginUser (LoginUserRequest body) {
 
@@ -18,6 +17,5 @@ public class LoginUserController {
                 .body(body)
                 .post(UserEndpoints.LOGIN.getPath())
                 .then().log().all();
-
     }
 }

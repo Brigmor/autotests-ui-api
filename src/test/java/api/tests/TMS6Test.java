@@ -17,10 +17,8 @@ public class TMS6Test extends BaseApiTest {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Зарегистрировать пользователя с некорректным форматом номера телефона")
     void test(){
-
         RegisterUserRequest user = UserFactory.createValidUser();
         user.setPhone("invalid-phone");
-
         RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))

@@ -16,7 +16,6 @@ public class TMS2Test extends BaseApiTest {
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Регистрация пользователя c пустыми полями")
      void test() {
-
         RegisterUserRequest user = RegisterUserRequest.builder()
                 .firstName("")
                 .lastName("")
@@ -26,7 +25,6 @@ public class TMS2Test extends BaseApiTest {
                 .confirmPassword("")
                 .consent(false)
                 .build();
-
         RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
@@ -39,8 +37,5 @@ public class TMS2Test extends BaseApiTest {
                         "phone",
                         "password"
                 ));
-
-
-
     }
 }

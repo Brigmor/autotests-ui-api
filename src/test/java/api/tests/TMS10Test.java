@@ -23,18 +23,13 @@ public class TMS10Test extends BaseApiTest {
     void test() {
         RegisterUserRequest user = UserFactory.createValidUser();
         RegisterUserController.postUser(user).statusCode(201);
-
         LoginUserRequest loginUser = LoginUserRequest.builder()
                 .email(user.getEmail())
                 .password(user.getPassword()).build();
-
         LoginUserController.postLoginUser(loginUser)
                 .statusCode(200)
                 .body("accessToken", Matchers.notNullValue())
                 .body("accessToken",Matchers.not(Matchers.emptyString()))
                 .body("tokenType",Matchers.equalTo("bearer"));
-
-
-
     }
 }

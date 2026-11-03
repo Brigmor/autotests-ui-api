@@ -29,7 +29,5 @@ public class TMS7Test extends BaseApiTest {
                 .body("message",Matchers.equalTo("Некорректные данные"))
                 .body("errors.field",Matchers.hasItem("password"))
                 .body("errors.message",Matchers.hasItems(Matchers.containsString("String should have at least 8 characters")));
-
-
     }
 }

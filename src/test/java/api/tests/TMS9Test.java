@@ -27,6 +27,5 @@ public class TMS9Test extends BaseApiTest {
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message",Matchers.equalTo("Некорректные данные"))
                 .body("errors.message",Matchers.hasItem(Matchers.containsString("Value error, Требуется согласие")));
-
     }
 }

@@ -19,10 +19,8 @@ public class TMS4Test extends BaseApiTest {
      void test(){
         RegisterUserRequest oldUser = UserFactory.createValidUser();
         RegisterUserController.postUser(oldUser).statusCode(201);
-
         RegisterUserRequest user = UserFactory.createValidUser();
         user.setEmail(oldUser.getEmail());
-
         RegisterUserController.postUser(user)
                 .statusCode(409)
                 .body("code", Matchers.equalTo("HTTP_ERROR"))
