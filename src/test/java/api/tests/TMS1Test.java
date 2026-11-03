@@ -1,8 +1,8 @@
 package api.tests;
 
 import api.BaseApiTest;
-import api.controllers.UserController;
-import api.models.request.UserRequest;
+import api.controllers.RegisterUserController;
+import api.models.request.RegisterUserRequest;
 import api.data.UserFactory;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
@@ -18,8 +18,8 @@ public class TMS1Test extends BaseApiTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Регистрация нового пользователя")
     void shouldRegisterUser() {
-        UserRequest user = UserFactory.createValidUser();
-        UserController.postUser(user)
+        RegisterUserRequest user = UserFactory.createValidUser();
+        RegisterUserController.postUser(user)
                 .statusCode(201)
                 .body("id", Matchers.notNullValue());
     }

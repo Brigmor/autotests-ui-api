@@ -1,9 +1,9 @@
 package api.tests;
 
 import api.BaseApiTest;
-import api.controllers.UserController;
+import api.controllers.RegisterUserController;
 import api.data.UserFactory;
-import api.models.request.UserRequest;
+import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
@@ -18,10 +18,10 @@ public class TMS6Test extends BaseApiTest {
     @DisplayName("Зарегистрировать пользователя с некорректным форматом номера телефона")
     void test(){
 
-        UserRequest user = UserFactory.createValidUser();
+        RegisterUserRequest user = UserFactory.createValidUser();
         user.setPhone("invalid-phone");
 
-        UserController.postUser(user)
+        RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message",Matchers.equalTo("Некорректные данные"))

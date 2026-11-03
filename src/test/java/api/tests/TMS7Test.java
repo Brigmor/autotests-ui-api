@@ -1,9 +1,9 @@
 package api.tests;
 
 import api.BaseApiTest;
-import api.controllers.UserController;
+import api.controllers.RegisterUserController;
 import api.data.UserFactory;
-import api.models.request.UserRequest;
+import api.models.request.RegisterUserRequest;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -20,10 +20,10 @@ public class TMS7Test extends BaseApiTest {
     @DisplayName("Регистрация пользоватлея с паролем меньше 8 символов")
     void test() {
 
-        UserRequest user = UserFactory.createValidUser();
+        RegisterUserRequest user = UserFactory.createValidUser();
         user.setPassword("1234");
 
-        UserController.postUser(user)
+        RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message",Matchers.equalTo("Некорректные данные"))

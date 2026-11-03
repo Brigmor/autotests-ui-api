@@ -7,6 +7,7 @@ public abstract class BaseApiTest {
 
     @BeforeAll
     public static void setUpApi() {
+        RestAssured.reset();
                 RestAssured.filters(CustomTpl.customLogFilter().getFilter());
     }
 }

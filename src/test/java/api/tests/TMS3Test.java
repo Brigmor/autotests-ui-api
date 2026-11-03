@@ -1,9 +1,9 @@
 package api.tests;
 
 import api.BaseApiTest;
-import api.controllers.UserController;
+import api.controllers.RegisterUserController;
 import api.data.UserFactory;
-import api.models.request.UserRequest;
+import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
@@ -18,9 +18,9 @@ public class TMS3Test extends BaseApiTest {
     @DisplayName("Регистрация пользователя с неправильным форматом email")
      void test() {
 
-        UserRequest user = UserFactory.createValidUser();
+        RegisterUserRequest user = UserFactory.createValidUser();
         user.setEmail("invalid-email");
-        UserController.postUser(user)
+        RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message", Matchers.equalTo("Некорректные данные"))

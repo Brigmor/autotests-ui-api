@@ -4,14 +4,14 @@ import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import api.endpoints.UserEndpoints;
 import api.specification.Specification;
-import api.models.request.UserRequest;
+import api.models.request.RegisterUserRequest;
 
 import static io.restassured.RestAssured.given;
 
-public class UserController {
+public class RegisterUserController {
 
     @Step("Создать пользователя")
-    public static ValidatableResponse postUser(UserRequest body) {
+    public static ValidatableResponse postUser(RegisterUserRequest body) {
         return given()
                 .spec(Specification.baseSpec())
                 .body(body)

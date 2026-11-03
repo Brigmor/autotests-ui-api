@@ -1,8 +1,8 @@
 package api.tests;
 
-import api.controllers.UserController;
+import api.controllers.RegisterUserController;
 import api.data.UserFactory;
-import api.models.request.UserRequest;
+import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
@@ -17,13 +17,13 @@ public class TMS5Test {
     @DisplayName("Повторная регистрация пользователя с уже зарегистрированным номером телефона")
     void test(){
 
-        UserRequest secondUser = UserFactory.createValidUser();
-        UserController.postUser(secondUser).statusCode(201);
+        RegisterUserRequest secondUser = UserFactory.createValidUser();
+        RegisterUserController.postUser(secondUser).statusCode(201);
 
-        UserRequest user = UserFactory.createValidUser();
+        RegisterUserRequest user = UserFactory.createValidUser();
                user.setPhone(secondUser.getPhone());
 
-               UserController.postUser(user)
+               RegisterUserController.postUser(user)
                        .statusCode(409)
                        .body("code", Matchers.equalTo("HTTP_ERROR"))
                        .body("message",Matchers.equalTo("Email or phone already exists"))

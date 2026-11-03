@@ -1,9 +1,9 @@
 package api.tests;
 
 import api.BaseApiTest;
-import api.controllers.UserController;
+import api.controllers.RegisterUserController;
 import api.data.UserFactory;
-import api.models.request.UserRequest;
+import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
@@ -17,13 +17,13 @@ public class TMS4Test extends BaseApiTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Повторная регистрация пользователя с уже зарегистрированным email")
      void test(){
-        UserRequest oldUser = UserFactory.createValidUser();
-        UserController.postUser(oldUser).statusCode(201);
+        RegisterUserRequest oldUser = UserFactory.createValidUser();
+        RegisterUserController.postUser(oldUser).statusCode(201);
 
-        UserRequest user = UserFactory.createValidUser();
+        RegisterUserRequest user = UserFactory.createValidUser();
         user.setEmail(oldUser.getEmail());
 
-        UserController.postUser(user)
+        RegisterUserController.postUser(user)
                 .statusCode(409)
                 .body("code", Matchers.equalTo("HTTP_ERROR"))
                 .body("message",Matchers.equalTo("Email or phone already exists"))

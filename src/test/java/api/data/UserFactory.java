@@ -1,15 +1,15 @@
 package api.data;
 
-import api.models.request.UserRequest;
+import api.models.request.RegisterUserRequest;
 import net.datafaker.Faker;
 
 public class UserFactory {
 
     private static final Faker FAKER = new Faker();
 
-    public static UserRequest createValidUser() {
+    public static RegisterUserRequest createValidUser() {
         final String password = "Test12345!";
-        return UserRequest.builder()
+        return RegisterUserRequest.builder()
                 .firstName(FAKER.name().firstName())
                 .lastName(FAKER.name().lastName())
                 .phone("+7" + FAKER.number().digits(10))
