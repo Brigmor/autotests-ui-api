@@ -12,7 +12,7 @@ public class RegisterUserController {
     @Step("Создать пользователя")
     public static ValidatableResponse postUser(RegisterUserRequest body) {
         return given()
-                .spec(Specification.baseSpec())
+                .spec(Specification.UserSpec())
                 .body(body)
                 .post(UserEndpoints.REGISTER.getPath())
                 .then().log().all();

@@ -1,4 +1,4 @@
-package api.tests;
+package api.tests.userService;
 import api.BaseApiTest;
 import api.controllers.LoginUserController;
 import api.controllers.RegisterUserController;

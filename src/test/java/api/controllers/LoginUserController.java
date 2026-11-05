@@ -13,7 +13,7 @@ public class LoginUserController {
     public static ValidatableResponse postLoginUser (LoginUserRequest body) {
 
         return given()
-                .spec(Specification.baseSpec())
+                .spec(Specification.UserSpec())
                 .body(body)
                 .post(UserEndpoints.LOGIN.getPath())
                 .then().log().all();

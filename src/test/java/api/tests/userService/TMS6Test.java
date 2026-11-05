@@ -1,4 +1,4 @@
-package api.tests;
+package api.tests.userService;
 
 import api.BaseApiTest;
 import api.controllers.RegisterUserController;
@@ -9,21 +9,21 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class TMS9Test extends BaseApiTest {
-
+public class TMS6Test extends BaseApiTest {
     @Test
     @Epic("API")
     @Feature("Регистрация пользователя")
-    @Story("Регистрация без согласия пользователя")
+    @Story("Регистрация с некорректным форматом номера телефона")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Регистрация пользователя без согласия с условиями")
-    void test() {
+    @DisplayName("Зарегистрировать пользователя с некорректным форматом номера телефона")
+    void test(){
         RegisterUserRequest user = UserFactory.createValidUser();
-        user.setConsent(false);
+        user.setPhone("invalid-phone");
         RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message",Matchers.equalTo("Некорректные данные"))
-                .body("errors.message",Matchers.hasItem(Matchers.containsString("Value error, Требуется согласие")));
+                .body("errors.field", Matchers.hasItem("phone"))
+                .body("errors.message",Matchers.hasItems(Matchers.containsString("String should match pattern")));
     }
 }

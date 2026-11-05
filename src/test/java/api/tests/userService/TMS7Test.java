@@ -1,4 +1,4 @@
-package api.tests;
+package api.tests.userService;
 
 import api.BaseApiTest;
 import api.controllers.RegisterUserController;
@@ -9,21 +9,23 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class TMS6Test extends BaseApiTest {
+public class TMS7Test extends BaseApiTest {
     @Test
     @Epic("API")
     @Feature("Регистрация пользователя")
-    @Story("Регистрация с некорректным форматом номера телефона")
+    @Story("Регистрация с паролем меньше 8 символов")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Зарегистрировать пользователя с некорректным форматом номера телефона")
-    void test(){
+    @DisplayName("Регистрация пользователя с паролем меньше 8 символов")
+    void test() {
+
         RegisterUserRequest user = UserFactory.createValidUser();
-        user.setPhone("invalid-phone");
+        user.setPassword("1234");
+
         RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message",Matchers.equalTo("Некорректные данные"))
-                .body("errors.field", Matchers.hasItem("phone"))
-                .body("errors.message",Matchers.hasItems(Matchers.containsString("String should match pattern")));
+                .body("errors.field",Matchers.hasItem("password"))
+                .body("errors.message",Matchers.hasItems(Matchers.containsString("String should have at least 8 characters")));
     }
 }

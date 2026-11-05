@@ -1,4 +1,4 @@
-package api.tests;
+package api.tests.userService;
 
 import api.controllers.RegisterUserController;
 import api.data.UserFactory;
