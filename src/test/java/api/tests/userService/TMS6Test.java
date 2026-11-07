@@ -16,14 +16,14 @@ public class TMS6Test extends BaseApiTest {
     @Story("Регистрация с некорректным форматом номера телефона")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Зарегистрировать пользователя с некорректным форматом номера телефона")
-    void test(){
+    void test() {
         RegisterUserRequest user = UserFactory.createValidUser();
         user.setPhone("invalid-phone");
         RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
-                .body("message",Matchers.equalTo("Некорректные данные"))
+                .body("message", Matchers.equalTo("Некорректные данные"))
                 .body("errors.field", Matchers.hasItem("phone"))
-                .body("errors.message",Matchers.hasItems(Matchers.containsString("String should match pattern")));
+                .body("errors.message", Matchers.hasItems(Matchers.containsString("String should match pattern")));
     }
 }

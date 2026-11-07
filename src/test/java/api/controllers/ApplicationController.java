@@ -12,8 +12,8 @@ public class ApplicationController {
 
     @Step("Создать заявку пользователем")
     public static ValidatableResponse postApplication(ApplicationRequest body, String token) {
-        return  given()
-                .spec(Specification.ApplicationSpec())
+        return given()
+                .spec(Specification.baseApplicationService())
                 .auth()
                 .oauth2(token)
                 .body(body)

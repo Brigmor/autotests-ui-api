@@ -11,7 +11,7 @@ public class ApplicationFactory {
     private static final Faker FAKER = new Faker(new Locale("ru"));
 
     public static ApplicationRequest createValidApplication() {
-
+        //Надо зарандомить
         LocalDate birthDate = LocalDate.of(2000, 11, 2);
         LocalDate issueDate = birthDate.plusYears(14);
 

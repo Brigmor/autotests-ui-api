@@ -27,7 +27,7 @@ public class TMS10Test extends BaseApiTest {
         LoginUserController.postLoginUser(loginUser)
                 .statusCode(200)
                 .body("accessToken", Matchers.notNullValue())
-                .body("accessToken",Matchers.not(Matchers.emptyString()))
-                .body("tokenType",Matchers.equalTo("bearer"));
+                .body("accessToken", Matchers.not(Matchers.emptyString()))
+                .body("tokenType", Matchers.equalTo("bearer"));
     }
 }

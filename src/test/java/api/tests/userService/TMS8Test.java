@@ -22,8 +22,8 @@ public class TMS8Test extends BaseApiTest {
         RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
-                .body("message",Matchers.equalTo("Некорректные данные"))
-                .body("errors.field",Matchers.hasItem(""))
-                .body("errors.message",Matchers.hasItem(Matchers.containsString("Value error, Пароли не совпадают")));
+                .body("message", Matchers.equalTo("Некорректные данные"))
+                .body("errors.field", Matchers.hasItem(""))
+                .body("errors.message", Matchers.hasItem(Matchers.containsString("Value error, Пароли не совпадают")));
     }
 }

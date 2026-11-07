@@ -1,4 +1,5 @@
 package api.tests.userService;
+
 import api.BaseApiTest;
 import api.controllers.LoginUserController;
 import api.controllers.RegisterUserController;
@@ -9,6 +10,7 @@ import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 public class TMS11Test extends BaseApiTest {
     @Test
     @Epic("API")
@@ -24,8 +26,8 @@ public class TMS11Test extends BaseApiTest {
         LoginUserController.postLoginUser(loginUser)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
-                .body("message",Matchers.equalTo("Некорректные данные"))
-                .body("errors.field",Matchers.hasItem("email"))
-                .body("errors.message",Matchers.hasItem(Matchers.containsString("Input should be a valid string")));
+                .body("message", Matchers.equalTo("Некорректные данные"))
+                .body("errors.field", Matchers.hasItem("email"))
+                .body("errors.message", Matchers.hasItem(Matchers.containsString("Input should be a valid string")));
     }
 }

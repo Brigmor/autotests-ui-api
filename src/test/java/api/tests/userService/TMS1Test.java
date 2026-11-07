@@ -2,8 +2,8 @@ package api.tests.userService;
 
 import api.BaseApiTest;
 import api.controllers.RegisterUserController;
-import api.models.request.RegisterUserRequest;
 import api.data.UserFactory;
+import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;

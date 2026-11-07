@@ -1,4 +1,5 @@
 package api.tests.userService;
+
 import api.BaseApiTest;
 import api.controllers.LoginUserController;
 import api.controllers.RegisterUserController;
@@ -9,6 +10,7 @@ import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 public class TMS12Test extends BaseApiTest {
     @Test
     @Epic("API")
@@ -25,6 +27,6 @@ public class TMS12Test extends BaseApiTest {
         LoginUserController.postLoginUser(logUser)
                 .statusCode(401)
                 .body("code", Matchers.equalTo("HTTP_ERROR"))
-                .body("message",Matchers.equalTo("Неверный email или пароль"));
+                .body("message", Matchers.equalTo("Неверный email или пароль"));
     }
 }

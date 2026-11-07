@@ -23,7 +23,7 @@ public class TMS9Test extends BaseApiTest {
         RegisterUserController.postUser(user)
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
-                .body("message",Matchers.equalTo("Некорректные данные"))
-                .body("errors.message",Matchers.hasItem(Matchers.containsString("Value error, Требуется согласие")));
+                .body("message", Matchers.equalTo("Некорректные данные"))
+                .body("errors.message", Matchers.hasItem(Matchers.containsString("Value error, Требуется согласие")));
     }
 }

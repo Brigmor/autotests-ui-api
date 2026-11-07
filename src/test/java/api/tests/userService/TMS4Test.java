@@ -16,7 +16,7 @@ public class TMS4Test extends BaseApiTest {
     @Story("Повторная регистрация с уже существующим email")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Повторная регистрация пользователя с уже зарегистрированным email")
-     void test(){
+    void test() {
         RegisterUserRequest oldUser = UserFactory.createValidUser();
         RegisterUserController.postUser(oldUser).statusCode(201);
         RegisterUserRequest user = UserFactory.createValidUser();
@@ -24,7 +24,7 @@ public class TMS4Test extends BaseApiTest {
         RegisterUserController.postUser(user)
                 .statusCode(409)
                 .body("code", Matchers.equalTo("HTTP_ERROR"))
-                .body("message",Matchers.equalTo("Email or phone already exists"))
-                .body("errors",Matchers.empty());
+                .body("message", Matchers.equalTo("Email or phone already exists"))
+                .body("errors", Matchers.empty());
     }
 }

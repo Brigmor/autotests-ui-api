@@ -1,18 +1,19 @@
 package api.controllers;
 
+import api.endpoints.UserEndpoints;
+import api.models.request.RegisterUserRequest;
+import api.specification.Specification;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-import api.endpoints.UserEndpoints;
-import api.specification.Specification;
-import api.models.request.RegisterUserRequest;
 
 import static io.restassured.RestAssured.given;
 
 public class RegisterUserController {
-    @Step("Создать пользователя")
+
+    @Step("Создать пользователя с логином - [{body.email}]")
     public static ValidatableResponse postUser(RegisterUserRequest body) {
         return given()
-                .spec(Specification.UserSpec())
+                .spec(Specification.baseUserService())
                 .body(body)
                 .post(UserEndpoints.REGISTER.getPath())
                 .then().log().all();

@@ -9,11 +9,11 @@ import io.restassured.response.ValidatableResponse;
 import static io.restassured.RestAssured.given;
 
 public class LoginUserController {
-    @Step("Авторизация пользователя")
-    public static ValidatableResponse postLoginUser (LoginUserRequest body) {
 
+    @Step("Авторизация пользователя c логином - [{body.email}]")
+    public static ValidatableResponse postLoginUser(LoginUserRequest body) {
         return given()
-                .spec(Specification.UserSpec())
+                .spec(Specification.baseUserService())
                 .body(body)
                 .post(UserEndpoints.LOGIN.getPath())
                 .then().log().all();
