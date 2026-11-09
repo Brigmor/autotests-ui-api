@@ -10,12 +10,13 @@ import io.qameta.allure.SeverityLevel;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 public class TMS16Test extends BaseApiAuthTest {
 
     @Test
-    @Tag("API")
+    @Tags({@Tag("API")})
     @Feature("Создание заявки")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Создать заявку без токена авторизации")

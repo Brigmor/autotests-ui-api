@@ -7,11 +7,13 @@ import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 public class TMS3Test extends BaseApiTest {
     @Test
-    @Epic("API")
+    @Tags({@Tag("API"),@Tag("Register")})
     @Feature("Регистрация пользователя")
     @Story("Регистрация пользователя с неправильным форматом email")
     @Severity(SeverityLevel.NORMAL)

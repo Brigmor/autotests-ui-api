@@ -12,13 +12,14 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.*;
 
 public class TMS14Test extends BaseApiTest {
     @Test
-    @Tag("API")
+    @Tags({@Tag("API"),@Tag("Register")})
     @Feature("Авторизация пользователя")
     @Story("Авторизация с некорректным форматом email")
     @Severity(SeverityLevel.CRITICAL)

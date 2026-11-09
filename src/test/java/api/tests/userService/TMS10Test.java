@@ -9,11 +9,13 @@ import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 public class TMS10Test extends BaseApiTest {
     @Test
-    @Epic("API")
+    @Tags({@Tag("API"),@Tag("Auth")})
     @Feature("Авторизация пользователя")
     @Story("Авторизация с верными данными")
     @Severity(SeverityLevel.CRITICAL)

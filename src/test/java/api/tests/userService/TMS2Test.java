@@ -6,26 +6,20 @@ import api.models.request.RegisterUserRequest;
 import io.qameta.allure.*;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 public class TMS2Test extends BaseApiTest {
     @Test
-    @Epic("API")
+    @Tags({@Tag("API"),@Tag("Register")})
     @Feature("Регистрация пользователя")
     @Story("Регистрация с незаполненными обязательными полями")
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Регистрация пользователя c пустыми полями")
     void test() {
-        RegisterUserRequest user = RegisterUserRequest.builder()
-                .firstName("")
-                .lastName("")
-                .phone("")
-                .email("")
-                .password("")
-                .confirmPassword("")
-                .consent(false)
-                .build();
-        RegisterUserController.postUser(user)
+
+        RegisterUserController.postUser(getRegisterRequest())
                 .statusCode(422)
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message", Matchers.equalTo("Некорректные данные"))
@@ -37,5 +31,17 @@ public class TMS2Test extends BaseApiTest {
                         "phone",
                         "password"
                 ));
+    }
+
+    private RegisterUserRequest getRegisterRequest() {
+        return   RegisterUserRequest.builder()
+                .firstName("")
+                .lastName("")
+                .phone("")
+                .email("")
+                .password("")
+                .confirmPassword("")
+                .consent(false)
+                .build();
     }
 }
