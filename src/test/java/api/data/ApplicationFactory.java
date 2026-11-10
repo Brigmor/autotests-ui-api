@@ -33,17 +33,14 @@ public class ApplicationFactory {
                 .build();
     }
     public static ApplicationEmploymentRequest createValidApplicationStep2() {
-        return  ApplicationEmploymentRequest.builder()
+        return ApplicationEmploymentRequest.builder()
                 .employmentType("employed")
                 .employer("ООО " + FAKER.company().name())
                 .position(FAKER.job().title())
-                .experienceMonths(ThreadLocalRandom.current().nextInt(1, 361))
-                .monthlyIncome(String.valueOf(BigDecimal.valueOf(
-                        ThreadLocalRandom.current().nextInt(30_000, 300_001))))
-                .monthlyExpenses(String.valueOf(BigDecimal.valueOf(
-                        ThreadLocalRandom.current().nextInt(5_000, 100_001))))
-                .additionalIncome(String.valueOf(BigDecimal.valueOf(
-                        ThreadLocalRandom.current().nextInt(0, 50_001))))
+                .experienceMonths(ThreadLocalRandom.current().nextInt(12, 361))
+                .monthlyIncome("300000")
+                .monthlyExpenses("30000")
+                .additionalIncome("50000")
                 .build();
     }
     public static ApplicationLoanRequest createValidLoan() {

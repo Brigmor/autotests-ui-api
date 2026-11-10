@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -21,7 +22,9 @@ public class ApplicationResponse {
     private OffsetDateTime decidedAt;
     private String rejectionReason;
     private Object step1;
-    private Object step2;
-    private Object step3;
+    private ApplicationEmploymentResponse step2;
+    private ApplicationLoanResponse step3;
     private List<Object> documents;
+    private BigDecimal monthlyPayment;
+    private Integer annualRate;
 }
