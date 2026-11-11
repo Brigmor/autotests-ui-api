@@ -19,19 +19,19 @@ public class TMS20Test extends BaseApiAuthTest {
         ApplicationRequest app = ApplicationFactory.createValidApplication();
          ApplicationResponse response = ApplicationController.postApplication(app, token)
                  .extract().as(ApplicationResponse.class);
-          String appId = response.getId();
-           ApplicationController.putSaveApplication(appId, app, token);
+          applicationId = response.getId();
+           ApplicationController.putSaveApplication(applicationId, app, token);
             ApplicationEmploymentRequest appStep2 = ApplicationFactory.createValidApplicationStep2();
-             ApplicationController.putApplicationEmployment(appId, appStep2, token);
+             ApplicationController.putApplicationEmployment(applicationId, appStep2, token);
               ApplicationLoanRequest loanRequest = ApplicationFactory.createValidLoan();
-               ApplicationController.putApplicationLoan(appId, loanRequest, token);
-                ApplicationController.submitApplication(appId, token);
+               ApplicationController.putApplicationLoan(applicationId, loanRequest, token);
+                ApplicationController.submitApplication(applicationId, token);
                  WaitUtils.buildAwait()
-                   .untilAsserted(() -> ApplicationController.getDecision(appId, token)
+                   .untilAsserted(() -> ApplicationController.getDecision(applicationId, token)
                         .then()
                         .statusCode(200)
                         .body("status", equalTo("APPROVED")));
-                          ApplicationController.getDocument(appId, token)
+                          ApplicationController.getDocument(applicationId, token)
                                   .then()
                                   .statusCode(200)
                                   .body("$", hasSize(2))

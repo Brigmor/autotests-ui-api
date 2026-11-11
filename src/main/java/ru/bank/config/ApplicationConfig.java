@@ -26,4 +26,10 @@ public interface ApplicationConfig extends org.aeonbits.owner.Config{
 
     @Key("connection.timeout")
     int connectionTimeout();
+
+    @Key("db.url")
+    String dbUrl();
+
+    @Key("db.username")
+    String dbUsername();
 }
