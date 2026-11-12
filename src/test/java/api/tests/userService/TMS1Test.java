@@ -4,7 +4,10 @@ import api.BaseApiTest;
 import api.controllers.RegisterUserController;
 import api.data.UserFactory;
 import api.models.request.RegisterUserRequest;
-import io.qameta.allure.*;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -14,7 +17,7 @@ import org.junit.jupiter.api.Test;
 public class TMS1Test extends BaseApiTest {
 
     @Test
-    @Tags({@Tag("API"),@Tag("Register")})
+    @Tags({@Tag("api"), @Tag("reg")})
     @Feature("Регистрация пользователя")
     @Story("Успешная регистрация")
     @Severity(SeverityLevel.CRITICAL)

@@ -4,8 +4,8 @@ import api.BaseApiAuthTest;
 import api.controllers.ApplicationController;
 import api.data.ApplicationFactory;
 import api.models.request.ApplicationEmploymentRequest;
-import api.models.request.ApplicationRequest;
 import api.models.request.ApplicationLoanRequest;
+import api.models.request.ApplicationRequest;
 import api.models.response.ApplicationResponse;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 public class TMS19Test extends BaseApiAuthTest {
 
     @Test
-    @Tags({@Tag("API")})
+    @Tags({@Tag("api"), @Tag("application")})
     @Feature("Создание заявки")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Добавить этап 'параметры кредита' в заявку")

@@ -7,6 +7,12 @@ import api.models.request.ApplicationEmploymentRequest;
 import api.models.request.ApplicationLoanRequest;
 import api.models.request.ApplicationRequest;
 import api.models.response.ApplicationResponse;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import utils.WaitUtils;
 
@@ -15,6 +21,10 @@ import static org.hamcrest.Matchers.*;
 
 public class TMS20Test extends BaseApiAuthTest {
     @Test
+    @Tags({@Tag("api"), @Tag("application")})
+    @Feature("Создание заявки")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("пройти все этапы создания заявки и получить ответ")
     void test() {
         ApplicationRequest app = ApplicationFactory.createValidApplication();
          ApplicationResponse response = ApplicationController.postApplication(app, token)
@@ -36,9 +46,6 @@ public class TMS20Test extends BaseApiAuthTest {
                                   .statusCode(200)
                                   .body("$", hasSize(2))
                                   .body("status", everyItem(equalTo("READY")))
-                                  .body("name", hasItems(
-                                          "Заявление на получение кредита",
-                                          "Учебный кредитный договор"
-                                  ));
+                                  .body("name", hasItems("Заявление на получение кредита", "Учебный кредитный договор"));
     }
 }

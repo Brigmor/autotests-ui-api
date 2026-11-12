@@ -1,9 +1,9 @@
 package api.controllers;
 
 import api.endpoints.ApplicationEndpoints;
+import api.models.request.ApplicationEmploymentRequest;
 import api.models.request.ApplicationLoanRequest;
 import api.models.request.ApplicationRequest;
-import api.models.request.ApplicationEmploymentRequest;
 import api.specification.Specification;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
@@ -27,11 +27,7 @@ public class ApplicationController {
                 .then().log().all();
     }
     @Step("Сохранить первый этап заявки")
-    public static ValidatableResponse putSaveApplication(
-            String applicationId,
-            ApplicationRequest body,
-            String token
-    ) {
+    public static ValidatableResponse putSaveApplication(String applicationId, ApplicationRequest body, String token) {
         return given()
                 .spec(Specification.baseApplicationService())
                 .auth().oauth2(token)

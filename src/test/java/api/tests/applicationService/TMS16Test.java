@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 public class TMS16Test extends BaseApiAuthTest {
 
     @Test
-    @Tags({@Tag("API")})
+    @Tags({@Tag("api"), @Tag("application")})
     @Feature("Создание заявки")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Создать заявку без токена авторизации")

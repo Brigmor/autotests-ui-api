@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 public class TMS17Test extends BaseApiAuthTest {
 
     @Test
-    @Tags({@Tag("API"),@Tag("Application")})
+    @Tags({@Tag("api"), @Tag("application")})
     @Feature("Создание заявки")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Создание заявки с пустыми обязательными полями")

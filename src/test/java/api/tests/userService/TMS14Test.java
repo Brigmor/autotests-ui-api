@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.*;
 
 public class TMS14Test extends BaseApiTest {
     @Test
-    @Tags({@Tag("API"),@Tag("Register")})
+    @Tags({@Tag("api"), @Tag("auth")})
     @Feature("Авторизация пользователя")
     @Story("Авторизация с некорректным форматом email")
     @Severity(SeverityLevel.CRITICAL)
