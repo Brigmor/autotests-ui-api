@@ -1,4 +1,4 @@
-package utils;
+package ru.utils;
 
 import org.awaitility.core.ConditionFactory;
 

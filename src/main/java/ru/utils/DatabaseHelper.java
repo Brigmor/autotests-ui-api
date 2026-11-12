@@ -1,5 +1,5 @@
 
-package utils;
+package ru.utils;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

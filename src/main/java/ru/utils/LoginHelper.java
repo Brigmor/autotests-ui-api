@@ -1,4 +1,4 @@
-package utils;
+package ru.utils;
 
 import api.controllers.LoginUserController;
 import api.controllers.RegisterUserController;

@@ -4,7 +4,7 @@ import api.specification.CustomTpl;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import utils.DatabaseHelper;
+import ru.utils.DatabaseHelper;
 
 public abstract class BaseApiTest {
 
