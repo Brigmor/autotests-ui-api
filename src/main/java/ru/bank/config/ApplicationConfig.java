@@ -15,17 +15,17 @@ public interface ApplicationConfig extends org.aeonbits.owner.Config{
     @Key("ui.base-url")
     String uiBaseUrl();
 
-    @Key("browser")
+    @Key("ui.browser")
     String browser();
 
-    @Key("browser.headless")
+    @Key("ui.headless")
     boolean headless();
 
-    @Key("timeout")
+    @Key("ui.timeout")
     int timeout();
 
-    @Key("connection.timeout")
-    int connectionTimeout();
+    @Key("ui.browser-size")
+    String sizeBrowser();
 
     @Key("db.url")
     String dbUrl();
