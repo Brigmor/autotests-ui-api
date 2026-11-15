@@ -11,17 +11,17 @@ import static com.codeborne.selenide.Selenide.open;
 public class BaseUITest {
 
     @BeforeAll
-    static void setUp() {
+    public static void setUp() {
         UiConfiguration.configure();
     }
 
     @BeforeEach
-     void openApplication () {
+    public void openApplication() {
         open("/");
     }
 
     @AfterEach
-    void tearDown() {
+    public void tearDown() {
         closeWebDriver();
     }
 }

@@ -1,6 +1,6 @@
 package api.tests.applicationService;
 
-import api.BaseApiAuthTest;
+import api.BaseApiTest;
 import api.controllers.ApplicationController;
 import api.data.ApplicationFactory;
 import api.models.request.ApplicationRequest;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-public class TMS16Test extends BaseApiAuthTest {
+public class TMS16Test extends BaseApiTest {
 
     @Test
     @Tags({@Tag("api"), @Tag("application")})

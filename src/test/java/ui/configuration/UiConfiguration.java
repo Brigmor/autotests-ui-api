@@ -1,12 +1,11 @@
 package ui.configuration;
 
 import com.codeborne.selenide.Configuration;
-import ru.bank.config.Config;
+import config.Config;
 
 public class UiConfiguration {
 
     public static void configure() {
-
         Configuration.browser = Config.CONFIG_APP.browser();
         Configuration.baseUrl = Config.CONFIG_APP.uiBaseUrl();
         Configuration.headless = Config.CONFIG_APP.headless();

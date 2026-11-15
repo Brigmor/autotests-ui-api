@@ -1,6 +1,6 @@
 package api.tests.applicationService;
 
-import api.BaseApiAuthTest;
+import api.BaseApiTest;
 import api.controllers.ApplicationController;
 import api.models.request.ApplicationRequest;
 import io.qameta.allure.Feature;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-public class TMS17Test extends BaseApiAuthTest {
+public class TMS17Test extends BaseApiTest {
 
     @Test
     @Tags({@Tag("api"), @Tag("application")})

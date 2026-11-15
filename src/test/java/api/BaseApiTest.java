@@ -1,12 +1,14 @@
 package api;
 
+import api.helpers.LoginHelper;
 import api.specification.CustomTpl;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import ru.utils.DatabaseHelper;
 
 public abstract class BaseApiTest {
+
+    protected String applicationId;
 
     @BeforeAll
     public static void setUpApi() {
@@ -14,13 +16,12 @@ public abstract class BaseApiTest {
         RestAssured.filters(CustomTpl.customLogFilter().getFilter());
     }
 
-    protected String applicationId;
-
     @AfterEach
     void tearDown() {
         if (applicationId != null) {
             DatabaseHelper.deleteApplication(applicationId);
             applicationId = null;
         }
+        LoginHelper.clearToken();
     }
 }

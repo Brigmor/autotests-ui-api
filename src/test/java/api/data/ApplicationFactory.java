@@ -1,10 +1,10 @@
 package api.data;
 
-import api.models.request.ApplicationRequest;
 import api.models.request.ApplicationEmploymentRequest;
 import api.models.request.ApplicationLoanRequest;
+import api.models.request.ApplicationRequest;
 import net.datafaker.Faker;
-import java.math.BigDecimal;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
@@ -13,9 +13,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ApplicationFactory {
 
     private static final Faker FAKER = new Faker(new Locale("ru"));
+    private static final List<String> LOAN_PURPOSES = List.of("repair", "car", "education", "other");
 
     public static ApplicationRequest createValidApplication() {
-
         LocalDate birthDate = LocalDate.of(2000, 11, 2);
         LocalDate issueDate = birthDate.plusYears(14);
 
@@ -44,7 +44,6 @@ public class ApplicationFactory {
                 .build();
     }
     public static ApplicationLoanRequest createValidLoan() {
-
         return ApplicationLoanRequest.builder()
                 .loanType("consumer")
                 .loanAmount(ThreadLocalRandom.current().nextInt(50_000, 500_001))
@@ -54,13 +53,4 @@ public class ApplicationFactory {
                 .consent(true)
                 .build();
     }
-    private static final List<String> LOAN_PURPOSES = List.of(
-            "repair",
-            "car",
-            "education",
-            "other"
-    );
-
-
-
 }

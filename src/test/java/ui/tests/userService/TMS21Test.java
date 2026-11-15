@@ -11,17 +11,17 @@ import ui.BaseUITest;
 import ui.pages.RegisterPage;
 
 public class TMS21Test extends BaseUITest {
+
     @Test
     @Tags({@Tag("ui"),@Tag("reg")})
     @Feature("Регистрация пользователя")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Зарегистрировать пользователя с валидными данными")
-    void test() {
-
+    public void test() {
         new RegisterPage()
                 .openPage()
-                .setFirstName("Алекс")
-                .setLastName("Алекс")
+                .setFirstName("Алекс") //TODO: Зарандомить данные
+                .setLastName("Алекс") //TODO: Подключить чекстайл
                 .setEmail("testt@mai.ru")
                 .setPhone("+79212435130")
                 .setPassword("8921adad")

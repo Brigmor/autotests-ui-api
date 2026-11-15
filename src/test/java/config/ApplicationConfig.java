@@ -1,4 +1,4 @@
-package ru.bank.config;
+package config;
 
 
 import org.aeonbits.owner.Config;
@@ -26,7 +26,7 @@ public interface ApplicationConfig extends org.aeonbits.owner.Config{
 
     @Key("ui.browser-size")
     String sizeBrowser();
-
+    //TODO: Для DB отдельный db.properties
     @Key("db.url")
     String dbUrl();
 
