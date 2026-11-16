@@ -18,7 +18,6 @@ import utils.WaitUtils;
 
 import static org.hamcrest.Matchers.*;
 
-
 public class TMS20Test extends BaseApiTest {
 
     private ApplicationRequest app;
@@ -74,6 +73,5 @@ public class TMS20Test extends BaseApiTest {
                         .statusCode(200)
                         .body("status", equalTo("APPROVED")));
     }
-
-
 }
+

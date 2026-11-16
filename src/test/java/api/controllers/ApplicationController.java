@@ -1,5 +1,7 @@
 package api.controllers;
 
+import java.util.UUID;
+
 import api.endpoints.ApplicationEndpoints;
 import api.models.request.ApplicationEmploymentRequest;
 import api.models.request.ApplicationLoanRequest;
@@ -8,8 +10,6 @@ import api.specification.Specification;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-
-import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
 
@@ -89,4 +89,5 @@ public class ApplicationController {
 
     }
 }
+
 

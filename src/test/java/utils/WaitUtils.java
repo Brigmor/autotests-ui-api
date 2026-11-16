@@ -1,8 +1,8 @@
 package utils;
 
-import org.awaitility.core.ConditionFactory;
-
 import java.time.Duration;
+
+import org.awaitility.core.ConditionFactory;
 
 import static org.awaitility.Awaitility.await;
 

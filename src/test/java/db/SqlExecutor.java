@@ -11,7 +11,7 @@ public class SqlExecutor {
         String sql = "DELETE FROM applications WHERE id = ?";
 
         try (Connection connection = DATA_SOURCE.getConnection();
-             var statement = connection.prepareStatement(sql)) {
+                     var statement = connection.prepareStatement(sql)) {
 
             statement.setString(1, applicationId);
             statement.executeUpdate();

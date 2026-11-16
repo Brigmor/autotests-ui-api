@@ -40,6 +40,5 @@ public class TMS14Test extends BaseApiTest {
                 .body("errors.message",
                         hasItem(containsString("An email address must have an @-sign")));
     }
-
-
 }
+

@@ -28,7 +28,7 @@ public class TMS13Test {
                 .body("code", Matchers.equalTo("VALIDATION_ERROR"))
                 .body("message", Matchers.equalTo("Некорректные данные"))
                 .body("errors.field", Matchers.hasItem("email"))
-                .body("errors.message", Matchers.hasItem(Matchers.
-                        containsString("An email address must have an @-sign.")));
+                .body("errors.message",
+                        Matchers.hasItem(Matchers.containsString("An email address must have an @-sign.")));
     }
 }

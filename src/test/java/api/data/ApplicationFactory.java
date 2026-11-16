@@ -1,15 +1,14 @@
 package api.data;
 
-import api.models.request.ApplicationEmploymentRequest;
-import api.models.request.ApplicationLoanRequest;
-import api.models.request.ApplicationRequest;
-import net.datafaker.Faker;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
+import api.models.request.ApplicationEmploymentRequest;
+import api.models.request.ApplicationLoanRequest;
+import api.models.request.ApplicationRequest;
+import net.datafaker.Faker;
 
 public class ApplicationFactory {
 
