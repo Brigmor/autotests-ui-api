@@ -4,7 +4,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources("classpath:config/application.properties")
-public interface ApplicationConfig extends org.aeonbits.owner.Config{
+public interface ApplicationConfig extends org.aeonbits.owner.Config {
 
     @Key("api.user-service-url")
     String userServiceUrl();
@@ -26,6 +26,7 @@ public interface ApplicationConfig extends org.aeonbits.owner.Config{
 
     @Key("ui.browser-size")
     String sizeBrowser();
+
     //TODO: Для DB отдельный db.properties
     @Key("db.url")
     String dbUrl();

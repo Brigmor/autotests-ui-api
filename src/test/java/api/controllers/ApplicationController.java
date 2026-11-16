@@ -23,6 +23,7 @@ public class ApplicationController {
                 .post(ApplicationEndpoints.CREATE.getPath())
                 .then();
     }
+
     @Step("Сохранить первый этап заявки")
     public static ValidatableResponse putSaveApplication(String applicationId, ApplicationRequest body) {
         return given()
@@ -33,22 +34,26 @@ public class ApplicationController {
                 .then();
 
     }
+
     @Step("Добавить этап 'работа и доход' к созданию заявки")
-    public static ValidatableResponse putApplicationEmployment(String applicationId, ApplicationEmploymentRequest body) {
+    public static ValidatableResponse putApplicationEmployment(String applicationId,
+                                                               ApplicationEmploymentRequest body) {
         return given()
                 .spec(Specification.authSpecification())
                 .body(body)
-                .put(String.format(ApplicationEndpoints.STEP_2.getPath(),applicationId))
+                .put(String.format(ApplicationEndpoints.STEP_2.getPath(), applicationId))
                 .then();
     }
+
     @Step("Добавить этап 'параметры кредита' к созданию заявки")
     public static ValidatableResponse putApplicationLoan(String applicationId, ApplicationLoanRequest body) {
         return given()
                 .spec(Specification.authSpecification())
                 .body(body)
-                .put(String.format(ApplicationEndpoints.STEP_3.getPath(),applicationId))
+                .put(String.format(ApplicationEndpoints.STEP_3.getPath(), applicationId))
                 .then();
     }
+
     @Step("Отправить заявку на рассмотрение")
     public static ValidatableResponse submitApplication(String applicationId) {
         return given()
@@ -58,6 +63,7 @@ public class ApplicationController {
                 .post(String.format(ApplicationEndpoints.SUBMIT_APPLICATION.getPath(), applicationId))
                 .then();
     }
+
     @Step("Получить решение по заявке")
     public static Response getDecision(String applicationId) {
         return given()
@@ -65,6 +71,7 @@ public class ApplicationController {
                 .when()
                 .get(String.format(ApplicationEndpoints.GET_DECISION.getPath(), applicationId));
     }
+
     @Step("Скачать документ")
     public static Response downloadDocument(String applicationId, String documentId) {
         return given()
@@ -72,6 +79,7 @@ public class ApplicationController {
                 .when()
                 .get(String.format(ApplicationEndpoints.DOWNLOAD_DOCUMENT.getPath(), applicationId, documentId));
     }
+
     @Step("Получить список документов на заявку")
     public static Response getDocument(String applicationId) {
         return given()
@@ -81,3 +89,4 @@ public class ApplicationController {
 
     }
 }
+

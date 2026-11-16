@@ -13,7 +13,7 @@ import ui.pages.RegisterPage;
 public class TMS21Test extends BaseUITest {
 
     @Test
-    @Tags({@Tag("ui"),@Tag("reg")})
+    @Tags({@Tag("ui"), @Tag("reg")})
     @Feature("Регистрация пользователя")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Зарегистрировать пользователя с валидными данными")

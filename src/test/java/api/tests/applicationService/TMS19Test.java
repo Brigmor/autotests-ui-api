@@ -25,26 +25,25 @@ public class TMS19Test extends BaseApiTest {
     @DisplayName("Добавить этап 'параметры кредита' в заявку")
     void test() {
         ApplicationRequest app = ApplicationFactory.createValidApplication();
-        ApplicationResponse response = ApplicationController.postApplication(app,token)
+        ApplicationResponse response = ApplicationController.postApplication(app)
                 .extract().as(ApplicationResponse.class);
         String appId = response.getId();
         ApplicationEmploymentRequest appStep2 = ApplicationFactory.createValidApplicationStep2();
-        ApplicationController.putApplicationEmployment(appId,appStep2,token);
+        ApplicationController.putApplicationEmployment(appId, appStep2);
         ApplicationLoanRequest loanRequest = ApplicationFactory.createValidLoan();
-        ApplicationController.putApplicationLoan(appId,loanRequest,token)
+        ApplicationController.putApplicationLoan(appId, loanRequest)
                 .statusCode(200)
                 .body("id", Matchers.equalTo(appId))
-                .body("userId",Matchers.notNullValue())
-                .body("status",Matchers.equalTo("DRAFT"))
-                .body("step3.loanType",Matchers.equalTo(loanRequest.getLoanType()))
-                .body("step3.loanAmount",Matchers.equalTo(loanRequest.getLoanAmount()))
-                .body("step3.termMonths",Matchers.equalTo(loanRequest.getTermMonths()))
-                .body("step3.purpose",Matchers.equalTo(loanRequest.getPurpose()))
-                .body("step3.comment",Matchers.equalTo(loanRequest.getComment()))
-                .body("step3.consent",Matchers.equalTo(loanRequest.getConsent()))
-                .body("monthlyPayment",Matchers.notNullValue())
-                .body("annualRate",Matchers.notNullValue());
-
+                .body("userId", Matchers.notNullValue())
+                .body("status", Matchers.equalTo("DRAFT"))
+                .body("step3.loanType", Matchers.equalTo(loanRequest.getLoanType()))
+                .body("step3.loanAmount", Matchers.equalTo(loanRequest.getLoanAmount()))
+                .body("step3.termMonths", Matchers.equalTo(loanRequest.getTermMonths()))
+                .body("step3.purpose", Matchers.equalTo(loanRequest.getPurpose()))
+                .body("step3.comment", Matchers.equalTo(loanRequest.getComment()))
+                .body("step3.consent", Matchers.equalTo(loanRequest.getConsent()))
+                .body("monthlyPayment", Matchers.notNullValue())
+                .body("annualRate", Matchers.notNullValue());
 
 
     }

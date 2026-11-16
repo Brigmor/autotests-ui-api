@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
+
 public class ApplicationFactory {
 
     private static final Faker FAKER = new Faker(new Locale("ru"));
@@ -32,6 +33,7 @@ public class ApplicationFactory {
                 .registrationAddress(FAKER.address().fullAddress())
                 .build();
     }
+
     public static ApplicationEmploymentRequest createValidApplicationStep2() {
         return ApplicationEmploymentRequest.builder()
                 .employmentType("employed")
@@ -43,6 +45,7 @@ public class ApplicationFactory {
                 .additionalIncome("50000")
                 .build();
     }
+
     public static ApplicationLoanRequest createValidLoan() {
         return ApplicationLoanRequest.builder()
                 .loanType("consumer")

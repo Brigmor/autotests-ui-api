@@ -37,7 +37,7 @@ public class TMS2Test extends BaseApiTest {
     }
 
     private RegisterUserRequest getRegisterRequest() {
-        return   RegisterUserRequest.builder()
+        return RegisterUserRequest.builder()
                 .firstName("")
                 .lastName("")
                 .phone("")

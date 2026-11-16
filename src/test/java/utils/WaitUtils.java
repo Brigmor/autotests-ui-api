@@ -17,6 +17,7 @@ public class WaitUtils {
 
     public static ConditionFactory buildAwait(Duration timeout) {
         return await()
+                .pollInSameThread()
                 .atMost(timeout)
                 .pollDelay(Duration.ZERO)
                 .pollInterval(POLL_INTERVAL);

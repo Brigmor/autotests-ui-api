@@ -25,31 +25,26 @@ public class TMS18Test extends BaseApiTest {
     void test() {
 
         ApplicationRequest app = ApplicationFactory.createValidApplication();
-        ApplicationResponse response = ApplicationController.postApplication(app,token)
+        ApplicationResponse response = ApplicationController.postApplication(app)
                 .extract().as(ApplicationResponse.class);
         String appId = response.getId();
         ApplicationEmploymentRequest appStep2 = ApplicationFactory.createValidApplicationStep2();
-        ApplicationController.putApplicationEmployment(appId,appStep2,token)
+        ApplicationController.putApplicationEmployment(appId, appStep2)
                 .statusCode(200)
                 .body("id", Matchers.equalTo(appId))
-                .body("userId",Matchers.notNullValue())
-                .body("status",Matchers.equalTo("DRAFT"))
-                .body("createdAt",Matchers.notNullValue())
-                .body("decidedAt",Matchers.nullValue())
-                .body("rejectionReason",Matchers.nullValue())
-                .body("step1",Matchers.nullValue())
-                .body("step2.employmentType",Matchers.equalTo(appStep2.getEmploymentType()))
-                .body("step2.employer",Matchers.equalTo(appStep2.getEmployer()))
-                .body("step2.position",Matchers.equalTo(appStep2.getPosition()))
-                .body("step2.experienceMonths",Matchers.equalTo(appStep2.getExperienceMonths()))
-                .body("step2.monthlyIncome",Matchers.equalTo(appStep2.getMonthlyIncome()))
-                .body("step2.monthlyExpenses",Matchers.equalTo(appStep2.getMonthlyExpenses()))
-                .body("step2.additionalIncome",Matchers.equalTo(appStep2.getAdditionalIncome()));
-
-
-
-
-
+                .body("userId", Matchers.notNullValue())
+                .body("status", Matchers.equalTo("DRAFT"))
+                .body("createdAt", Matchers.notNullValue())
+                .body("decidedAt", Matchers.nullValue())
+                .body("rejectionReason", Matchers.nullValue())
+                .body("step1", Matchers.nullValue())
+                .body("step2.employmentType", Matchers.equalTo(appStep2.getEmploymentType()))
+                .body("step2.employer", Matchers.equalTo(appStep2.getEmployer()))
+                .body("step2.position", Matchers.equalTo(appStep2.getPosition()))
+                .body("step2.experienceMonths", Matchers.equalTo(appStep2.getExperienceMonths()))
+                .body("step2.monthlyIncome", Matchers.equalTo(appStep2.getMonthlyIncome()))
+                .body("step2.monthlyExpenses", Matchers.equalTo(appStep2.getMonthlyExpenses()))
+                .body("step2.additionalIncome", Matchers.equalTo(appStep2.getAdditionalIncome()));
 
 
     }

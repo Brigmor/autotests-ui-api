@@ -19,7 +19,7 @@ public class TMS17Test extends BaseApiTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Создание заявки с пустыми обязательными полями")
     void test() {
-        ApplicationController.postApplication(getApplicationRequest(), token)
+        ApplicationController.postApplication(getApplicationRequest())
                 .statusCode(422);
     }
 
