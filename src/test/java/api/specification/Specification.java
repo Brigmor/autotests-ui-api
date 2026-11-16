@@ -1,12 +1,13 @@
 package api.specification;
 
 import api.helpers.LoginHelper;
+import config.Config;
 import io.restassured.RestAssured;
-import io.restassured.authentication.AuthenticationScheme;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import config.Config;
 
 public class Specification {
 
@@ -32,6 +33,8 @@ public class Specification {
                 .setBaseUri(Config.CONFIG_APP.applicationServiceUrl())
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
+                .addFilter(new RequestLoggingFilter())
+                .addFilter(new ResponseLoggingFilter())
                 .build();
     }
 }

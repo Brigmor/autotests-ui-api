@@ -6,6 +6,8 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
+import static db.SqlExecutor.deleteApplication;
+
 public abstract class BaseApiTest {
 
     protected String applicationId;
@@ -19,7 +21,7 @@ public abstract class BaseApiTest {
     @AfterEach
     void tearDown() {
         if (applicationId != null) {
-            DatabaseHelper.deleteApplication(applicationId);
+            deleteApplication(applicationId);
             applicationId = null;
         }
         LoginHelper.clearToken();

@@ -20,9 +20,8 @@ public class ApplicationController {
         return given()
                 .spec(Specification.authSpecification())
                 .body(body)
-                .log().body()//Вынести в спецификацию все логи
                 .post(ApplicationEndpoints.CREATE.getPath())
-                .then().log().all();
+                .then();
     }
     @Step("Сохранить первый этап заявки")
     public static ValidatableResponse putSaveApplication(String applicationId, ApplicationRequest body) {
@@ -31,26 +30,24 @@ public class ApplicationController {
                 .body(body)
                 .when()
                 .put(String.format(ApplicationEndpoints.STEP_1.getPath(), applicationId))
-                .then()
-                .log().all();
+                .then();
+
     }
     @Step("Добавить этап 'работа и доход' к созданию заявки")
     public static ValidatableResponse putApplicationEmployment(String applicationId, ApplicationEmploymentRequest body) {
         return given()
                 .spec(Specification.authSpecification())
                 .body(body)
-                .log().body()
                 .put(String.format(ApplicationEndpoints.STEP_2.getPath(),applicationId))
-                .then().log().all();
+                .then();
     }
     @Step("Добавить этап 'параметры кредита' к созданию заявки")
     public static ValidatableResponse putApplicationLoan(String applicationId, ApplicationLoanRequest body) {
         return given()
                 .spec(Specification.authSpecification())
                 .body(body)
-                .log().body()
                 .put(String.format(ApplicationEndpoints.STEP_3.getPath(),applicationId))
-                .then().log().all();
+                .then();
     }
     @Step("Отправить заявку на рассмотрение")
     public static ValidatableResponse submitApplication(String applicationId) {
@@ -59,32 +56,28 @@ public class ApplicationController {
                 .header("Idempotency-Key", UUID.randomUUID().toString())
                 .when()
                 .post(String.format(ApplicationEndpoints.SUBMIT_APPLICATION.getPath(), applicationId))
-                .then()
-                .log().all();
+                .then();
     }
     @Step("Получить решение по заявке")
     public static Response getDecision(String applicationId) {
         return given()
                 .spec(Specification.authSpecification())
                 .when()
-                .get(String.format(ApplicationEndpoints.GET_DECISION.getPath(), applicationId))
-                .prettyPeek();
+                .get(String.format(ApplicationEndpoints.GET_DECISION.getPath(), applicationId));
     }
     @Step("Скачать документ")
     public static Response downloadDocument(String applicationId, String documentId) {
         return given()
                 .spec(Specification.authSpecification())
                 .when()
-                .get(String.format(ApplicationEndpoints.DOWNLOAD_DOCUMENT.getPath(), applicationId, documentId))
-                .prettyPeek();
+                .get(String.format(ApplicationEndpoints.DOWNLOAD_DOCUMENT.getPath(), applicationId, documentId));
     }
     @Step("Получить список документов на заявку")
     public static Response getDocument(String applicationId) {
         return given()
                 .spec(Specification.authSpecification())
                 .when()
-                .get(String.format(ApplicationEndpoints.GET_DOCUMENT.getPath(),applicationId))
-                .prettyPeek();
+                .get(String.format(ApplicationEndpoints.GET_DOCUMENT.getPath(), applicationId));
 
     }
 }

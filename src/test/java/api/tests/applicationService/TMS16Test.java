@@ -22,7 +22,7 @@ public class TMS16Test extends BaseApiTest {
     @DisplayName("Создать заявку без токена авторизации")
     void test() {
         ApplicationRequest applicationRequest = ApplicationFactory.createValidApplication();
-        ApplicationController.postApplication(applicationRequest, "")
+        ApplicationController.postApplication(applicationRequest)
                 .statusCode(401)
                 .body("code", Matchers.equalTo("HTTP_ERROR"))
                 .body("message", Matchers.equalTo("Authorization required"))

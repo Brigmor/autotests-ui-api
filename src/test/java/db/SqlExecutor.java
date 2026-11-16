@@ -3,6 +3,8 @@ package db;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import static db.DbConnection.DATA_SOURCE;
+
 public class SqlExecutor {
 
     public static void deleteApplication(String applicationId) {
