@@ -1,5 +1,6 @@
 package ui.tests.userService;
 
+import api.data.UserFactory;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ui.BaseUITest;
+import ui.pages.LoginPage;
 import ui.pages.RegisterPage;
 
 public class TMS21Test extends BaseUITest {
@@ -20,13 +22,15 @@ public class TMS21Test extends BaseUITest {
     public void test() {
         new RegisterPage()
                 .openPage()
-                .setFirstName("Алекс") //TODO: Зарандомить данные
-                .setLastName("Алекс") //TODO: Подключить чекстайл
-                .setEmail("testt@mai.ru")
-                .setPhone("+79212435130")
-                .setPassword("8921adad")
-                .setConfirmPassword("8921adad")
+                .setFirstName(UserFactory.createValidUser().getFirstName())
+                .setLastName(UserFactory.createValidUser().getLastName())
+                .setEmail(UserFactory.createValidUser().getEmail())
+                .setPhone(UserFactory.createValidUser().getPhone())
+                .setPassword(UserFactory.createValidUser().getPassword())
+                .setConfirmPassword(UserFactory.createValidUser().getConfirmPassword())
                 .acceptTerms()
                 .clickRegisterButton();
+        new LoginPage()
+                .checkSuccessfulRegistrationMessage();
     }
 }
