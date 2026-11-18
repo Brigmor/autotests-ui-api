@@ -20,14 +20,15 @@ public class TMS21Test extends BaseUITest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Зарегистрировать пользователя с валидными данными")
     public void test() {
+        var user = UserFactory.createValidUser();
         new RegisterPage()
                 .openPage()
-                .setFirstName(UserFactory.createValidUser().getFirstName())
-                .setLastName(UserFactory.createValidUser().getLastName())
-                .setEmail(UserFactory.createValidUser().getEmail())
-                .setPhone(UserFactory.createValidUser().getPhone())
-                .setPassword(UserFactory.createValidUser().getPassword())
-                .setConfirmPassword(UserFactory.createValidUser().getConfirmPassword())
+                .setFirstName(user.getFirstName())
+                .setLastName(user.getLastName())
+                .setEmail(user.getEmail())
+                .setPhone(user.getPhone())
+                .setPassword(user.getPassword())
+                .setConfirmPassword(user.getConfirmPassword())
                 .acceptTerms()
                 .clickRegisterButton();
         new LoginPage()
